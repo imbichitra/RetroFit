@@ -1,0 +1,19 @@
+<?PHP
+  if(!empty($_FILES['image']))
+  {
+    $path = "uploads/";
+    $path = $path . basename( $_FILES['image']['name']);
+    if(move_uploaded_file($_FILES['image']['tmp_name'], $path)) {
+        $myObj = new \stdClass();
+        $myObj->error = false;
+        $myObj->message = "Upload successfully";
+
+
+        $myJSON = json_encode($myObj);
+
+        echo $myJSON;
+    } else{
+        echo "There was an error uploading the file, please try again!";
+    }
+  }
+?>
