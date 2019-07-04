@@ -16,4 +16,8 @@ public interface UploadFile {
     @POST("retrofit.php")
     Call<MyResponse> uploadImage(@Part("image\"; filename=\"myfile1.iso1\" ") RequestBody file, @Part("desc") RequestBody desc);
     //Call<MyResponse> uploadImage(@Part("image\"; filename=\"myfile.jpg\" ") RequestBody file, @Part("desc") RequestBody desc);
+
+    @Multipart
+    @POST("retrofit.php")
+    Call<MyResponse> uploadFile(@Part MultipartBody.Part file, @Part("image") RequestBody name);
 }
